@@ -123,18 +123,18 @@
       const currentHour = moment().format("H");
     
       for (i = 0; i <= 8; i++) {
-        let rowHour = document.getElementsByClassName("row").id; 
-        let idString = "hour-" + i;
+        let rowIdHour = document.getElementsByClassName("row").id; 
+        let idString = "#hour" + i;
 
-        if (rowHour) {
-          $().addClass("past");
-        } else if (currentHour === rowHour) {
+        if (rowIdHour < currentHour) {
+          $(idString).addClass("past");
+        } else if (currentHour === rowIdHour) {
           $(idString).addClass("present");
-        } else if () {
+        } else if (rowIdHour > currentHour) {
           $(idString).addClass("future");
         }
         
-        $(rowHour).html(localStorage.getItem(idString));
+        $(rowIdHour).html(localStorage.getItem(idString));
       }
       
       
